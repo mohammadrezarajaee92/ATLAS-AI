@@ -1,0 +1,40 @@
+[project]
+name = "atlas-ai"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "Mohammad Reza Rajaee", email = "m.r.r.sayron@gmail.com" }
+]
+requires-python = ">=3.14"
+dependencies = [
+    "boto3>=1.44.7",
+    "fastapi>=0.165.0",
+    "glassflow-rius>=1.6.0",
+    "google-generativeai>=0.8.6",
+    "httpx>=0.28.1",
+    "ipykernel>=7.4.0",
+    "jinja2>=3.1.6",
+    "langchain>=1.5.2",
+    "langchain-community>=0.4.2",
+    "langchain-google-genai>=4.3.7",
+    "langchain-google-vertexai>=3.3.0",
+    "langchain-groq>=1.2.1",
+    "langchain-nvidia-ai-endpoints>=1.5.0",
+    "langchain-openai>=1.8.5",
+    "langgraph>=1.2.24",
+    "pinecone>=10.3.0",
+    "psycopg[binary,pool]>=3.3.9",
+    "pydantic-settings>=2.16.3",
+    "pypdf>=7.1.1",
+    "python-docx>=1.2.0",
+    "python-dotenv>=1.2.4",
+    "uvicorn[standard]>=0.54.0",
+]
+
+[project.scripts]
+atlas-ai = "atlas_ai:main"
+
+[build-system]
+requires = ["uv_build>=0.13.3,<0.14.0"]
+build-backend = "uv_build"

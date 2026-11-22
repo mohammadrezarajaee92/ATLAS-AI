@@ -1,0 +1,30 @@
+fastapi
+uvicorn[standard]
+jinja2
+pydantic-settings
+boto3
+psycopg[binary,pool]
+pypdf
+python-docx
+httpx
+langgraph
+pinecone
+
+python-dotenv
+ipykernel
+
+#  observability 
+glassflow-rius
+
+# LLM PROVIDERS & LANGCHAIN INTEGRATIONS
+google-generativeai
+langchain-google-genai
+langchain-google-vertexai
+langchain-openai
+langchain-groq
+langchain-nvidia-ai-endpoints
+
+# LANGCHAIN & AGENTIC ORCHESTRATION
+langchain
+langgraph
+langchain-community
