@@ -1,4 +1,4 @@
-"""Initialize Atlas tables in Render PostgreSQL from infra/schema.sql.
+"""Initialize Atlas tables in Supabase PostgreSQL from infra/schema.sql.
 
 Usage (from project root): python scripts/init_db.py
 Safe to rerun: the supplied schema uses CREATE ... IF NOT EXISTS.
@@ -24,7 +24,7 @@ def main():
     if not SCHEMA.is_file():
         print(f'ERROR: Schema not found: {SCHEMA}')
         return 1
-    print('Connecting to Render PostgreSQL (credentials hidden)...')
+    print('Connecting to Supabase PostgreSQL (credentials hidden)...')
     try:
         with psycopg.connect(url, connect_timeout=15) as conn:
             # Execute as one transaction: either the schema succeeds or it rolls back.
@@ -33,9 +33,6 @@ def main():
             with conn.cursor() as cur:
                 cur.execute('SELECT current_database()')
                 dbname = cur.fetchone()[0]
-                cur.execute('SELECT to_regclass(%s)', ('public.chat_messages',))
-                if cur.fetchone()[0] is None:
-                    raise RuntimeError('chat_messages table was not created')
                 for table in REQUIRED:
                     cur.execute('SELECT to_regclass(%s)', (f'public.{table}',))
                     if cur.fetchone()[0] is None:

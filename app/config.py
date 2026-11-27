@@ -1,6 +1,9 @@
 from functools import lru_cache
 from pydantic_settings import BaseSettings, SettingsConfigDict
+from dotenv import load_dotenv
+import os
 
+load_dotenv(override=True)
 
 class Settings(BaseSettings):
     model_config=SettingsConfigDict(env_file='.env',extra='ignore')
@@ -10,9 +13,11 @@ class Settings(BaseSettings):
     s3_bucket:str=''
     database_url:str=''  # Supabase PostgreSQL External Database URL
     groq_api_key:str=''
-    google_api_key:str=''
+    google_api_key:str=os.getenv("GOOGLE_API_KEY",'')
     embedding_provider:str='gemini'
     embedding_model:str='models/gemini-embedding-001'
+    embedding_dimention:int=3072
+    groq_chat_model:str='openai/gpt-oss-120b'
     max_upload_bytes:int=10485760
     pinecone_api_key:str=''
     pinecone_index_name:str='atlas-ai-index'
