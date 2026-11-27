@@ -16,7 +16,7 @@ class Settings(BaseSettings):
     google_api_key:str=os.getenv("GOOGLE_API_KEY",'')
     embedding_provider:str='gemini'
     embedding_model:str='models/gemini-embedding-001'
-    embedding_dimention:int=3072
+    embed_dim:int=3072
     groq_chat_model:str='openai/gpt-oss-120b'
     max_upload_bytes:int=10485760
     pinecone_api_key:str=''
